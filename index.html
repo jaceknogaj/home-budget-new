@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Domowy budżet</title>
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- styles -->
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <header class="header bgGreenGradient">
+      <div class="container">
+        <div class="logoBox">
+          <img
+            class="logoImage"
+            src="./images/logo-home-budget.svg"
+            alt="Logo Home Budget"
+          />
+          <h3 class="logoTitle">Domowy budżet</h3>
+        </div>
+      </div>
+    </header>
+    <main class="mainContent">
+      <div class="container mainContainer">
+        <div class="summaryBox bgBox textCenter">
+          <h2 class="h2Title">Podsumowanie</h2>
+          <p id="balanceMsg"></p>
+        </div>
+        <div class="flexConstainer">
+          <div class="income bgBox">
+            <h2 class="h2Title">Przychody</h2>
+
+            <form id="incomeForm">
+              <div class="form">
+                <div class="col">
+                  <input
+                    type="text"
+                    id="incomeName"
+                    placeholder="Nazwa przychodu"
+                    required
+                  />
+                </div>
+                <div class="col">
+                  <input
+                    type="number"
+                    id="incomeAmount"
+                    step="0.01"
+                    placeholder="Kwota przychodu"
+                    required
+                  />
+                </div>
+                <button type="submit" class="addBtn">Dodaj Przychód</button>
+              </div>
+              <div id="incomeError"></div>
+            </form>
+
+            <div class="list">
+              <h2>Lista przychodów</h2>
+              <ul id="incomeList"></ul>
+              <p>
+                Suma przychodów: <span id="totalIncome" class="bold"></span>
+              </p>
+            </div>
+          </div>
+          <div class="expense bgBox">
+            <h2 class="h2Title">Koszty</h2>
+            <form id="expenseForm">
+              <div class="form">
+                <div class="col">
+                  <input
+                    type="text"
+                    id="expenseName"
+                    placeholder="Nazwa wydatku"
+                    required
+                  />
+                </div>
+                <div class="col">
+                  <input
+                    type="number"
+                    id="expenseAmount"
+                    step="0.01"
+                    placeholder="Kwota"
+                    required
+                  />
+                </div>
+                <button type="submit" class="addBtn">Dodaj Wydatek</button>
+              </div>
+              <div class="expenseError"></div>
+            </form>
+            <div class="list">
+              <h2>Lista wydatków</h2>
+              <ul id="expenseList"></ul>
+              <p>Suma wydatków: <span id="totalExpense" class="bold"></span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div id="modal">
+      <div id="modalContent">
+        <h2>Edycja pozycji</h2>
+        <form id="editForm">
+          <label for="editName">Nowa nazwa: </label>
+          <input type="text" id="editName" class="modalInput" required />
+          <label for="editAmount">Nowa kwota (PLN): </label>
+          <input
+            type="number"
+            id="editAmount"
+            class="modalInput"
+            step="0.01"
+            required
+          />
+          <button type="submit" id="editSave" class="modalEditBtn">
+            Zapisz
+          </button>
+        </form>
+        <button id="editCancel">X</button>
+      </div>
+    </div>
+
+    <p id="errorMsg"></p>
+    <script src="./js/scripts.js"></script>
+  </body>
+</html>

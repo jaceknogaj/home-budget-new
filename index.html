@@ -33,6 +33,7 @@
         <div class="summaryBox bgBox textCenter">
           <h2 class="h2Title">Podsumowanie</h2>
           <p id="balanceMsg"></p>
+          <p id="errorMsg"></p>
         </div>
         <div class="flexConstainer">
           <div class="income bgBox">
@@ -42,6 +43,7 @@
               <div class="form">
                 <div class="col">
                   <input
+                    class="input"
                     type="text"
                     id="incomeName"
                     placeholder="Nazwa przychodu"
@@ -50,9 +52,11 @@
                 </div>
                 <div class="col">
                   <input
+                    class="input"
                     type="number"
                     id="incomeAmount"
                     step="0.01"
+                    min="0.01"
                     placeholder="Kwota przychodu"
                     required
                   />
@@ -76,6 +80,7 @@
               <div class="form">
                 <div class="col">
                   <input
+                    class="input"
                     type="text"
                     id="expenseName"
                     placeholder="Nazwa wydatku"
@@ -84,14 +89,16 @@
                 </div>
                 <div class="col">
                   <input
+                    class="input"
                     type="number"
                     id="expenseAmount"
                     step="0.01"
+                    min="0.01"
                     placeholder="Kwota"
                     required
                   />
                 </div>
-                <button type="submit" class="addBtn">Dodaj Wydatek</button>
+                <button type="submit" class="btn addBtn">Dodaj Wydatek</button>
               </div>
               <div class="expenseError"></div>
             </form>
@@ -109,24 +116,24 @@
         <h2>Edycja pozycji</h2>
         <form id="editForm">
           <label for="editName">Nowa nazwa: </label>
-          <input type="text" id="editName" class="modalInput" required />
+          <input type="text" id="editName" class="input modalInput" required />
           <label for="editAmount">Nowa kwota (PLN): </label>
           <input
             type="number"
             id="editAmount"
-            class="modalInput"
+            class="input modalInput"
             step="0.01"
+            min="0.01"
             required
           />
-          <button type="submit" id="editSave" class="modalEditBtn">
+          <button type="submit" id="editSave" class="btn modalEditBtn">
             Zapisz
           </button>
         </form>
-        <button id="editCancel">X</button>
+        <button id="editCancel" class="btn">X</button>
       </div>
     </div>
 
-    <p id="errorMsg"></p>
     <script src="./js/scripts.js"></script>
   </body>
 </html>

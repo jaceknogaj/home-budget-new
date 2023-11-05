@@ -111,12 +111,12 @@ body {
   flex-wrap: wrap;
   width: 100%;
 }
-input,
-button {
+.input,
+.btn {
   padding: 8px;
 }
 
-input {
+.input {
   width: 100%;
   margin: 0;
 }
@@ -177,18 +177,6 @@ input {
   font-weight: 700;
 }
 
-@media screen and (min-width: 768px) {
-  .col {
-    width: 40%;
-    margin-right: 2%;
-    margin-bottom: 0;
-  }
-  .addBtn {
-    width: calc(100% - 84%);
-    padding: 0;
-  }
-}
-
 #modal {
   display: none;
   position: fixed;
@@ -230,4 +218,16 @@ input {
   border: 1px solid var(--bgGreen);
   width: 100%;
   border-radius: 5px;
+}
+
+@media screen and (min-width: 768px) {
+  .col {
+    width: 40%;
+    margin-right: 2%;
+    margin-bottom: 0;
+  }
+  .addBtn {
+    width: calc(100% - 84%);
+    padding: 0;
+  }
 }

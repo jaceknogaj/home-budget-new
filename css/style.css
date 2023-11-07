@@ -177,7 +177,7 @@ body {
   font-weight: 700;
 }
 
-#modal {
+.modal {
   display: none;
   position: fixed;
   z-index: 1;
@@ -188,7 +188,7 @@ body {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
-#modalContent {
+.modalContent {
   background-color: #fff;
   position: relative;
   margin: 10% auto;
@@ -206,7 +206,7 @@ body {
   margin-bottom: 10px;
 }
 
-#editCancel {
+.editCancelBtn {
   position: absolute;
   top: -20px;
   right: -20px;
@@ -219,6 +219,9 @@ body {
   width: 100%;
   border-radius: 5px;
 }
+.total {
+  margin-top: 8px;
+}
 
 @media screen and (min-width: 768px) {
   .col {
@@ -227,7 +230,7 @@ body {
     margin-bottom: 0;
   }
   .addBtn {
-    width: calc(100% - 84%);
+    width: 16%;
     padding: 0;
   }
 }

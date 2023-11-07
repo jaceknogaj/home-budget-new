@@ -61,7 +61,7 @@
                     required
                   />
                 </div>
-                <button type="submit" class="addBtn">Dodaj Przychód</button>
+                <button type="submit" class="btn addBtn">Dodaj Przychód</button>
               </div>
               <div id="incomeError"></div>
             </form>
@@ -69,7 +69,7 @@
             <div class="list">
               <h2>Lista przychodów</h2>
               <ul id="incomeList"></ul>
-              <p>
+              <p class="total">
                 Suma przychodów: <span id="totalIncome" class="bold"></span>
               </p>
             </div>
@@ -105,14 +105,14 @@
             <div class="list">
               <h2>Lista wydatków</h2>
               <ul id="expenseList"></ul>
-              <p>Suma wydatków: <span id="totalExpense" class="bold"></span></p>
+              <p class="total"">Suma wydatków: <span id="totalExpense" class="bold"></span></p>
             </div>
           </div>
         </div>
       </div>
     </main>
-    <div id="modal">
-      <div id="modalContent">
+    <div id="modal" class="modal">
+      <div id="modalContent" class="modalContent">
         <h2>Edycja pozycji</h2>
         <form id="editForm">
           <label for="editName">Nowa nazwa: </label>
@@ -130,7 +130,7 @@
             Zapisz
           </button>
         </form>
-        <button id="editCancel" class="btn">X</button>
+        <button id="editCancel" class="btn editCancelBtn">X</button>
       </div>
     </div>
 

@@ -26,7 +26,7 @@ incomeForm.addEventListener("submit", (e) => {
 
   if (name && !isNaN(amount) && amount > 0) {
     incomeData.push({ name, amount: amount.toFixed(2) });
-    updateBudgetList();
+    updateBudgetList("income");
     document.getElementById("incomeName").value = "";
     document.getElementById("incomeAmount").value = "";
     calculateBalance();
@@ -44,7 +44,7 @@ expenseForm.addEventListener("submit", (e) => {
 
   if (name && !isNaN(amount) && amount > 0) {
     expenseData.push({ name, amount: amount.toFixed(2) });
-    updateBudgetList();
+    updateBudgetList("expense");
     document.getElementById("expenseName").value = "";
     document.getElementById("expenseAmount").value = "";
     calculateBalance();
@@ -78,24 +78,30 @@ editForm.addEventListener("submit", (e) => {
   }
 });
 
-function updateBudgetList() {
-  expenseList.innerHTML = "";
-  incomeList.innerHTML = "";
+function updateBudgetList(type) {
+  if (type === "income") {
+    const incomeListElement = document.getElementById("incomeList");
+    incomeListElement.innerHTML = "";
 
-  for (let i = 0; i < incomeData.length; i++) {
-    const item = incomeData[i];
-    const li = createListItem(item, i, "income");
-    incomeList.appendChild(li);
+    for (let i = 0; i < incomeData.length; i++) {
+      const item = incomeData[i];
+      const li = createListItem(item, i, "income");
+      incomeListElement.appendChild(li);
+    }
+
+    calculateTotalIncome();
+  } else if (type === "expense") {
+    const expenseListElement = document.getElementById("expenseList");
+    expenseListElement.innerHTML = "";
+
+    for (let i = 0; i < expenseData.length; i++) {
+      const item = expenseData[i];
+      const li = createListItem(item, i, "expense");
+      expenseListElement.appendChild(li);
+    }
+
+    calculateTotalExpense();
   }
-
-  for (let i = 0; i < expenseData.length; i++) {
-    const item = expenseData[i];
-    const li = createListItem(item, i, "expense");
-    expenseList.appendChild(li);
-  }
-
-  calculateTotalIncome();
-  calculateTotalExpense();
 }
 
 function createListItem(item, index, type) {
@@ -110,6 +116,8 @@ function createListItem(item, index, type) {
 
   const divTextRight = document.createElement("div");
   divTextRight.className = "textRight";
+
+  item.amount = parseFloat(item.amount).toFixed(2);
   divTextRight.textContent = item.amount + " PLN";
 
   divTextList.appendChild(divTextLeft);
@@ -163,7 +171,7 @@ editSaveBtn.addEventListener("click", () => {
       expenseData[editingIndex].amount = newAmount.toFixed(2);
     }
 
-    updateBudgetList();
+    updateBudgetList(editingType);
     calculateBalance();
 
     modal.style.display = "none";
@@ -183,7 +191,7 @@ function deleteBudgetItem(index, type) {
     incomeData.splice(index, 1);
   }
 
-  updateBudgetList();
+  updateBudgetList(type);
   calculateBalance();
 }
 
